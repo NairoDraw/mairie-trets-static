@@ -1,0 +1,75 @@
+
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mairie de Trets — Démo statique</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <section class="hero" aria-label="Vue de Trets">
+    <div class="navbar">
+      <div class="left">
+        <a href="#" class="pill">Actualités</a>
+        <a href="#" class="pill">Agenda</a>
+        <a href="#" class="pill">Emploi</a>
+        <a href="#" class="pill">Participer</a>
+      </div>
+      <div class="right">
+        <a href="#" class="pill">Ma mairie</a>
+        <a href="#" class="pill">Territoire</a>
+        <a href="#" class="pill">Éducation</a>
+        <a href="#" class="pill">Culture</a>
+        <a href="#" class="pill strong">MES DÉMARCHES</a>
+      </div>
+    </div>
+
+    <div class="title">
+      <h1>TRETS</h1>
+      <div class="subtitle">Village de Provence</div>
+      <div class="search">
+        <input placeholder="Rechercher sur le site" />
+        <button>🔍</button>
+      </div>
+    </div>
+
+    <div class="carousel">
+      <button id="prev">◀</button>
+      <div class="track" id="track"></div>
+      <button id="next">▶</button>
+    </div>
+  </section>
+
+  <script>
+    const posters = [
+      "/images/hero/fichier-32.png",
+      "/images/hero/fichier-33.png",
+      "/images/hero/fichier-34.png",
+      "/images/hero/fichier-35.png",
+      "/images/hero/foire-de-printemps-de-trets-a5-423x600.jpg",
+      "/images/hero/524173400_751390060918513_6027279254532139555_n.jpg",
+      "/images/hero/fichier-31.png"
+    ];
+    const track = document.getElementById('track');
+    posters.forEach(src => {
+      const d = document.createElement('div');
+      d.className = 'item';
+      const img = document.createElement('img');
+      img.src = src;
+      d.appendChild(img);
+      track.appendChild(d);
+    });
+
+    let index = 0;
+    const ITEM_W = 180, GAP = 16, STEP = ITEM_W + GAP;
+    function moveTo(i) {
+      index = (i + posters.length) % posters.length;
+      track.style.transform = `translateX(${-index * STEP}px)`;
+    }
+    document.getElementById('prev').onclick = () => moveTo(index - 1);
+    document.getElementById('next').onclick = () => moveTo(index + 1);
+    setInterval(() => moveTo(index + 1), 3500);
+  </script>
+</body>
+</html>

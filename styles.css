@@ -1,0 +1,21 @@
+
+:root { --yellow:#F7C948; --blue:#0B3A82; }
+*{box-sizing:border-box} body{margin:0;font-family:system-ui,Segoe UI,Roboto,Arial;padding-bottom:40px;color:#0f172a}
+.hero{position:relative; height:520px; background:url('/images/hero/hero-bg.png') center/cover no-repeat;}
+.navbar{position:absolute; left:50%; transform:translateX(-50%); top:24px; width:min(100%,960px); display:flex; justify-content:space-between; background:var(--yellow); padding:6px 8px; border-radius:999px; box-shadow:0 8px 24px rgba(0,0,0,.15)}
+.pill{display:inline-flex; align-items:center; padding:6px 10px; border-radius:999px; text-decoration:none; color:#111}
+.pill:hover{background:#fde68a} .pill.strong{background:white; font-weight:700}
+.title{position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; color:white; text-shadow:0 2px 12px rgba(0,0,0,.4)}
+.title h1{margin:0; font-size:64px; letter-spacing:1px}
+.subtitle{opacity:.95; margin-top:4px}
+.search{margin-top:18px; display:flex; gap:8px; background:rgba(255,255,255,.95); padding:6px; border-radius:999px; align-items:center}
+.search input{border:none; outline:none; padding:8px 10px; border-radius:999px; width:280px}
+.search button{border:none; background:none; cursor:pointer; font-size:16px}
+
+.carousel{position:absolute; left:50%; transform:translateX(-50%); bottom:72px; width:min(100%,1120px); display:grid; grid-template-columns:40px 1fr 40px; align-items:center; gap:8px}
+.carousel button{height:36px; border-radius:999px; border:1px solid #e2e8f0; background:white; cursor:pointer}
+.track{overflow:hidden; background:rgba(255,255,255,.9); border:1px solid #e2e8f0; border-radius:16px; backdrop-filter:saturate(1.2) blur(4px); height:240px; position:relative}
+.track::before{content:""; position:absolute; inset:0; border-radius:16px; box-shadow: inset 0 0 0 1px rgba(0,0,0,.03)}
+.track .item{position:relative; height:100%; width:180px; margin-right:16px; display:inline-block}
+#track{white-space:nowrap; will-change:transform; transition:transform .5s ease}
+.track img{height:100%; width:100%; object-fit:cover; border-radius:12px; box-shadow:0 6px 20px rgba(0,0,0,.18)}
